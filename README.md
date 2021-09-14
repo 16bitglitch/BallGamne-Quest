@@ -1,3 +1,16 @@
+Readme Quest
+
+I love this game, its been a calming place consistantly for the last 5 years. Since getting the Quest 2 I have 
+wanted to have this mobile since my pc vr playing is less and less. So I did a rough recompile to more recent unity 
+and added in the oculus intergration. 
+
+Its super rough, but I will keep cleaning up. Stuff is broken, and might get fixed. Will see how it goes :) 
+
+Compiled with Unity 2020.3.18f1
+
+
+///////Original From Cabbibo/////////
+
 Hi Friends!
 
 So I realized this didn't have a readme, which is super poor form.
