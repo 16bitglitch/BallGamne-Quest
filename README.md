@@ -8,6 +8,8 @@ Its super rough, but I will keep cleaning up. Stuff is broken, and might get fix
 
 Compiled with Unity 2020.3.18f1
 
+Honestly, theres a good chance that at anytime this could be broken. Sooo..... yer.....
+
 
 ///////Original From Cabbibo/////////
 
