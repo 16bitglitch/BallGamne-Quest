@@ -1,3 +1,7 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Custom/PlanetBaby" {
  Properties {
   
@@ -197,12 +201,12 @@ Shader "Custom/PlanetBaby" {
         if( match < 0 ){ fPos.xyz += _Velocity * match * .5; }
   
         // Getting the position for actual position
-        o.pos = mul( UNITY_MATRIX_MVP , fPos );
+        o.pos = UnityObjectToClipPos(  fPos );
      
-        float3 mPos = mul( _Object2World , v.position );
+        float3 mPos = mul( unity_ObjectToWorld , v.position );
 
         o.ro = fPos;
-        o.camPos = mul( _World2Object , float4( _WorldSpaceCameraPos  , 1. )); 
+        o.camPos = mul( unity_WorldToObject , float4( _WorldSpaceCameraPos  , 1. )); 
         //o.localVel = mul( _World2Object , float4( _Velocity  , 0. )).xyz; 
         
         return o;
@@ -233,7 +237,7 @@ Shader "Custom/PlanetBaby" {
           float3 nor = calcNormal( pos );
           
           
-          nor = mul(  nor, (float3x3)_World2Object ); 
+          nor = mul(  nor, (float3x3)unity_WorldToObject ); 
           nor = normalize( nor );
           col = nor * .5 + .5;
           col *= 1. / (1. + 20. * pow( (res.x / _MaxTraceDistance) , 2. ));

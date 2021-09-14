@@ -23,4 +23,9 @@ public class StartButton : MonoBehaviour {
     }
   
   }
+
+	public void forceStart()
+    {
+		BallGameObj.GetComponent<BallGame>().startGame(transform.gameObject);
+	}
 }

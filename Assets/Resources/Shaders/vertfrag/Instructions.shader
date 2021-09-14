@@ -1,4 +1,7 @@
-﻿Shader "Custom/Instructions" {
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Instructions" {
  Properties {
   
 
@@ -196,10 +199,10 @@
         o.uv = v.texcoord;
   
         // Getting the position for actual position
-        o.pos = mul( UNITY_MATRIX_MVP , v.position );
+        o.pos = UnityObjectToClipPos(  v.position );
      
-        float3 mPos = mul( _Object2World , v.position );
-        o.centerP = mul( _Object2World , float4( 0. , 0. , 0. , 1. ) ).xyz;
+        float3 mPos = mul( unity_ObjectToWorld , v.position );
+        o.centerP = mul( unity_ObjectToWorld , float4( 0. , 0. , 0. , 1. ) ).xyz;
 
         o.ro = mPos;
         o.camPos = _WorldSpaceCameraPos; //float4( _WorldSpaceCameraPos  , 1. );mul( _World2Object , float4( _WorldSpaceCameraPos  , 1. )); 

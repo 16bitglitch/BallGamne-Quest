@@ -1,4 +1,8 @@
-﻿Shader "Custom/Title" {
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/Title" {
  Properties {
   
 
@@ -85,13 +89,13 @@ float3 hsv(float h, float s, float v)
         o.uv = v.texcoord;
   
         // Getting the position for actual position
-        o.pos = mul( UNITY_MATRIX_MVP , v.position );
+        o.pos = UnityObjectToClipPos(  v.position );
      
-        float3 mPos = mul( _Object2World , v.position );
-        o.centerP = mul( _Object2World , float4( 0. , 0. , 0. , 1. ) ).xyz;
+        float3 mPos = mul( unity_ObjectToWorld , v.position );
+        o.centerP = mul( unity_ObjectToWorld , float4( 0. , 0. , 0. , 1. ) ).xyz;
 
         o.ro = v.position;
-        o.camPos = mul( _World2Object , float4( _WorldSpaceCameraPos  , 1. )); 
+        o.camPos = mul( unity_WorldToObject , float4( _WorldSpaceCameraPos  , 1. )); 
 
         return o;
 

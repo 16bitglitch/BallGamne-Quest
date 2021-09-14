@@ -208,7 +208,7 @@ public class Room : MonoBehaviour {
       material.SetMatrix("worldMat", transform.localToWorldMatrix);
 
 
-      Graphics.DrawProcedural(MeshTopology.Triangles, numVertsTotal);
+      Graphics.DrawProceduralNow(MeshTopology.Triangles, numVertsTotal);
 
       particleMat.SetPass(0);
 
